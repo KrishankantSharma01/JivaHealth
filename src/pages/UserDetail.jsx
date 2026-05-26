@@ -1,14 +1,26 @@
-import { useNavigate, useParams } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
-import Button from '../components/ui/Button'
-import Avatar from '../components/ui/Avatar'
-import Badge from '../components/ui/Badge'
+import { useState } from 'react'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
+import { ArrowLeft, LayoutDashboard, ShoppingBag, CreditCard, Users } from 'lucide-react'
 import { mockUsers } from '../data/mockUsers'
-import { getStatusVariant } from '../utils/formatters'
+import UserDetailHeader from '../components/users/UserDetailHeader'
+import UserDetailStats from '../components/users/UserDetailStats'
+import UserDetailTabs from '../components/users/UserDetailTabs'
+import PersonalInfoCard from '../components/users/PersonalInfoCard'
+import RecentActivityCard from '../components/users/RecentActivityCard'
+
+const TABS = [
+  { id: 'overview', label: 'Overview', icon: LayoutDashboard },
+  { id: 'orders', label: 'Orders & Bookings', icon: ShoppingBag },
+  { id: 'payments', label: 'Payments', icon: CreditCard },
+  { id: 'family', label: 'Family Members', icon: Users },
+]
 
 export default function UserDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const [searchParams, setSearchParams] = useSearchParams()
+  
+  const activeTab = searchParams.get('tab') || 'overview'
   const user = mockUsers.find((u) => u.id === Number(id))
 
   if (!user) {
@@ -17,6 +29,10 @@ export default function UserDetail() {
         User not found.
       </div>
     )
+  }
+
+  const handleTabChange = (tabId) => {
+    setSearchParams({ tab: tabId })
   }
 
   return (
@@ -32,24 +48,42 @@ export default function UserDetail() {
       </button>
 
       {/* Profile header card */}
-      <div className="flex items-center gap-4 p-6 bg-surface-card border border-border-subtle rounded-2xl flex-wrap">
-        <Avatar initials={user.initials} size="lg" />
-        <div className="flex flex-col gap-2 flex-1 min-w-0">
-          <h1 className="text-2xl font-medium font-sans text-text-heading">{user.name}</h1>
-          <div className="flex flex-wrap gap-2">
-            <Badge variant={getStatusVariant(user.status)}>{user.status}</Badge>
-            <Badge variant="role">{user.role}</Badge>
-            <Badge variant="default">{user.userType}</Badge>
+      <UserDetailHeader user={user} />
+
+      {/* Stats row */}
+      <UserDetailStats />
+
+      {/* Tabs */}
+      <UserDetailTabs tabs={TABS} activeTab={activeTab} onTabChange={handleTabChange} />
+
+      {/* Tab Content */}
+      <div className="mt-2">
+        {activeTab === 'overview' && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <PersonalInfoCard user={user} />
+            <RecentActivityCard />
           </div>
-        </div>
-        {!user.isPrime && (
-          <Button variant="cta" size="md">Upgrade to Prime</Button>
+        )}
+        
+        {activeTab === 'orders' && (
+          <div className="bg-surface-card border border-border-light rounded-xl p-8 flex items-center justify-center text-text-muted font-medium">
+            Orders & Bookings Tab Content (Phase 6)
+          </div>
+        )}
+
+        {activeTab === 'payments' && (
+          <div className="bg-surface-card border border-border-light rounded-xl p-8 flex items-center justify-center text-text-muted font-medium">
+            Payments Tab Content (Phase 6)
+          </div>
+        )}
+
+        {activeTab === 'family' && (
+          <div className="bg-surface-card border border-border-light rounded-xl p-8 flex items-center justify-center text-text-muted font-medium">
+            Family Members Tab Content (Phase 6)
+          </div>
         )}
       </div>
 
-      <p className="text-sm font-medium font-sans text-text-muted">
-        Full detail page coming in Phase 5.
-      </p>
     </div>
   )
 }
