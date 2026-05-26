@@ -9,6 +9,8 @@ import PersonalInfoCard from '../components/users/PersonalInfoCard'
 import RecentActivityCard from '../components/users/RecentActivityCard'
 import OrdersBookingsTab from '../components/users/OrdersBookingsTab'
 
+import PaymentsTab from '../components/users/PaymentsTab'
+
 const TABS = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
   { id: 'orders', label: 'Orders & Bookings', icon: ShoppingBag },
@@ -71,9 +73,7 @@ export default function UserDetail() {
         )}
 
         {activeTab === 'payments' && (
-          <div className="bg-surface-card border border-border-light rounded-xl p-8 flex items-center justify-center text-text-muted font-medium">
-            Payments Tab Content (Phase 6)
-          </div>
+          <PaymentsTab user={user} />
         )}
 
         {activeTab === 'family' && (
