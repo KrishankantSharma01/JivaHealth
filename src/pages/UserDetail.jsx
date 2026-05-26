@@ -10,6 +10,7 @@ import RecentActivityCard from '../components/users/RecentActivityCard'
 import OrdersBookingsTab from '../components/users/OrdersBookingsTab'
 
 import PaymentsTab from '../components/users/PaymentsTab'
+import FamilyMembersTab from '../components/users/FamilyMembersTab'
 
 const TABS = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -77,9 +78,7 @@ export default function UserDetail() {
         )}
 
         {activeTab === 'family' && (
-          <div className="bg-surface-card border border-border-light rounded-xl p-8 flex items-center justify-center text-text-muted font-medium">
-            Family Members Tab Content (Phase 6)
-          </div>
+          <FamilyMembersTab user={user} />
         )}
       </div>
 

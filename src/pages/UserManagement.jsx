@@ -4,12 +4,14 @@ import Button from '../components/ui/Button'
 import UserStatsBar from '../components/users/UserStatsBar'
 import UserFilters from '../components/users/UserFilters'
 import UserList from '../components/users/UserList'
-import { mockUsers, userStats, statusOptions, roleOptions } from '../data/mockUsers'
+import AddUserModal from '../components/users/AddUserModal'
+import { mockUsers, userStats, statusOptions, genderAgeOptions } from '../data/mockUsers'
 
 export default function UserManagement() {
   const [search, setSearch] = useState('')
   const [status, setStatus] = useState(statusOptions[0])
-  const [role,   setRole]   = useState(roleOptions[0])
+  const [genderAge, setGenderAge] = useState(genderAgeOptions[0])
+  const [isAddUserModalOpen, setIsAddUserModalOpen] = useState(false)
 
   const filtered = useMemo(() => {
     return mockUsers.filter((u) => {
@@ -18,11 +20,21 @@ export default function UserManagement() {
         u.name.toLowerCase().includes(search.toLowerCase()) ||
         u.email.toLowerCase().includes(search.toLowerCase()) ||
         u.role.toLowerCase().includes(search.toLowerCase())
-      const matchStatus = status === statusOptions[0] || u.status === status
-      const matchRole   = role   === roleOptions[0]   || u.role   === role
-      return matchSearch && matchStatus && matchRole
+      
+      const matchStatus = status === 'All Status' || u.status === status
+      
+      let matchGenderAge = true
+      if (genderAge !== 'All Status') {
+        if (genderAge === 'Male' || genderAge === 'Female') {
+          matchGenderAge = u.gender === genderAge
+        } else {
+          matchGenderAge = u.ageGroup === genderAge
+        }
+      }
+      
+      return matchSearch && matchStatus && matchGenderAge
     })
-  }, [search, status, role])
+  }, [search, status, genderAge])
 
   return (
     <div className="flex flex-col gap-6 p-6">
@@ -37,7 +49,7 @@ export default function UserManagement() {
             Manage user accounts and permissions
           </p>
         </div>
-        <Button variant="primary" size="md" icon={Plus}>
+        <Button variant="primary" size="md" icon={Plus} onClick={() => setIsAddUserModalOpen(true)}>
           Add User
         </Button>
       </header>
@@ -47,13 +59,19 @@ export default function UserManagement() {
 
       {/* ── Search + Filters ── */}
       <UserFilters
-        search={search}       onSearchChange={setSearch}
-        status={status}       onStatusChange={setStatus}
-        role={role}           onRoleChange={setRole}
+        search={search}
+        onSearchChange={setSearch}
+        genderAge={genderAge}
+        onGenderAgeChange={setGenderAge}
+        status={status}
+        onStatusChange={setStatus}
       />
 
       {/* ── User Grid ── */}
       <UserList users={filtered} />
+      
+      {/* ── Add User Modal ── */}
+      <AddUserModal isOpen={isAddUserModalOpen} onClose={() => setIsAddUserModalOpen(false)} />
     </div>
   )
 }

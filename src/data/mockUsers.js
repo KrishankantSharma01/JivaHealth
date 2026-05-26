@@ -16,6 +16,8 @@ export const mockUsers = [
     lastLogin: '2026-03-21',
     appointments: 8,
     isPrime: false,
+    gender: 'Female',
+    ageGroup: '18-35 years',
   },
   {
     id: 2,
@@ -30,6 +32,8 @@ export const mockUsers = [
     lastLogin: '2025-12-30',
     appointments: 5,
     isPrime: false,
+    gender: 'Female',
+    ageGroup: '18-35 years',
   },
   {
     id: 3,
@@ -44,6 +48,8 @@ export const mockUsers = [
     lastLogin: '2026-03-22',
     appointments: 30,
     isPrime: false,
+    gender: 'Male',
+    ageGroup: '18-35 years',
   },
   {
     id: 4,
@@ -58,6 +64,8 @@ export const mockUsers = [
     lastLogin: '2026-03-20',
     appointments: 45,
     isPrime: false,
+    gender: 'Male',
+    ageGroup: '36-59 years',
   },
   {
     id: 5,
@@ -72,6 +80,8 @@ export const mockUsers = [
     lastLogin: '2026-04-02',
     appointments: 6,
     isPrime: false,
+    gender: 'Female',
+    ageGroup: '13-17 years',
   },
   {
     id: 6,
@@ -86,6 +96,8 @@ export const mockUsers = [
     lastLogin: '2026-03-25',
     appointments: 62,
     isPrime: false,
+    gender: 'Male',
+    ageGroup: '60+ years',
   },
 ]
 
@@ -97,4 +109,13 @@ export const userStats = {
 }
 
 export const statusOptions = ['All Status', 'Active', 'Inactive']
+export const genderAgeOptions = [
+  'All Status',
+  'Male',
+  'Female',
+  '13-17 years',
+  '18-35 years',
+  '36-59 years',
+  '60+ years'
+]
 export const roleOptions = ['All Roles', 'Patient', 'Doctor', 'Nurse', 'Support Staff']
