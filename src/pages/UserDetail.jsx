@@ -7,6 +7,7 @@ import UserDetailStats from '../components/users/UserDetailStats'
 import UserDetailTabs from '../components/users/UserDetailTabs'
 import PersonalInfoCard from '../components/users/PersonalInfoCard'
 import RecentActivityCard from '../components/users/RecentActivityCard'
+import OrdersBookingsTab from '../components/users/OrdersBookingsTab'
 
 const TABS = [
   { id: 'overview', label: 'Overview', icon: LayoutDashboard },
@@ -66,9 +67,7 @@ export default function UserDetail() {
         )}
         
         {activeTab === 'orders' && (
-          <div className="bg-surface-card border border-border-light rounded-xl p-8 flex items-center justify-center text-text-muted font-medium">
-            Orders & Bookings Tab Content (Phase 6)
-          </div>
+          <OrdersBookingsTab user={user} />
         )}
 
         {activeTab === 'payments' && (
