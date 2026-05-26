@@ -43,7 +43,7 @@ export const mockUsers = [
     joined: '2022-11-03',
     lastLogin: '2026-03-22',
     appointments: 30,
-    isPrime: true,
+    isPrime: false,
   },
   {
     id: 4,
@@ -57,7 +57,7 @@ export const mockUsers = [
     joined: '2023-08-10',
     lastLogin: '2026-03-20',
     appointments: 45,
-    isPrime: true,
+    isPrime: false,
   },
   {
     id: 5,
@@ -85,7 +85,7 @@ export const mockUsers = [
     joined: '2021-03-15',
     lastLogin: '2026-03-25',
     appointments: 62,
-    isPrime: true,
+    isPrime: false,
   },
 ]
 
@@ -97,4 +97,4 @@ export const userStats = {
 }
 
 export const statusOptions = ['All Status', 'Active', 'Inactive']
-export const roleOptions   = ['All Roles', 'Patient', 'Doctor', 'Nurse', 'Support Staff']
+export const roleOptions = ['All Roles', 'Patient', 'Doctor', 'Nurse', 'Support Staff']

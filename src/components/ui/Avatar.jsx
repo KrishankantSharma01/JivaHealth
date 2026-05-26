@@ -18,7 +18,7 @@ export default function Avatar({ initials = '??', size = 'sm' }) {
       className={[
         'flex items-center justify-center rounded-full shrink-0',
         'font-medium font-sans select-none tracking-wide',
-        'bg-avatar-bg text-avatar-text',
+        'bg-avatar-bg text-white',
         sizeClass[size] ?? sizeClass.sm,
       ].join(' ')}
     >

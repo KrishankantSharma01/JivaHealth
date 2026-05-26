@@ -17,9 +17,10 @@
   /* ── Colors — Text ───────────────────────── */
   --color-text-primary:     #263238;
   --color-text-heading:     #101828;
+  --color-text-name:        #0A0A0A;
   --color-text-secondary:   #6A7282;
   --color-text-muted:       #8B9295;
-  --color-text-body:        #374151;
+  --color-text-body:        #4A5565;
   --color-text-on-brand:    #FFFFFF;
 
   /* ── Colors — Brand ─────────────────────── */
@@ -31,21 +32,21 @@
   --color-border-subtle:    rgba(0, 0, 0, 0.10);
 
   /* ── Colors — Badges ─────────────────────── */
-  --color-badge-role-bg:    #EFF6FF;
-  --color-badge-role-border:#BFDBFE;
-  --color-badge-role-text:  #1D4ED8;
+  --color-badge-role-bg:    #F3F4F6;
+  --color-badge-role-border: rgba(0, 0, 0, 0);
+  --color-badge-role-text:  #1E2939;
 
   --color-badge-active-bg:    #DCFCE7;
-  --color-badge-active-border:#BBF7D0;
-  --color-badge-active-text:  #16A34A;
+  --color-badge-active-border: rgba(0, 0, 0, 0);
+  --color-badge-active-text:  #016630;
 
   --color-badge-inactive-bg:    #FEF2F2;
   --color-badge-inactive-border:#FECACA;
   --color-badge-inactive-text:  #DC2626;
 
   /* ── Colors — Avatar ─────────────────────── */
-  --color-avatar-bg:        #B3D9CE;
-  --color-avatar-text:      #016A4D;
+  --color-avatar-bg:        #155DFC;
+  --color-avatar-text:      #155DFC;
 
   /* ── Colors — Input ─────────────────────── */
   --color-input-bg:         #FFFFFF;

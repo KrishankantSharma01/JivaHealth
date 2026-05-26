@@ -8,9 +8,9 @@
 
 const variantClass = {
   primary: 'bg-text-primary text-white hover:opacity-90 active:opacity-80 border-transparent',
-  cta:     'btn-cta text-white hover:opacity-90 active:opacity-80 border-transparent',
+  cta: 'btn-cta text-white hover:opacity-90 active:opacity-80 border-transparent',
   outline: 'bg-surface-card text-text-primary border-border-subtle hover:bg-surface-page active:bg-border-light',
-  ghost:   'bg-transparent text-text-secondary border-transparent hover:bg-surface-page active:bg-border-light',
+  ghost: 'bg-transparent text-text-secondary border-transparent hover:bg-surface-page active:bg-border-light',
 }
 
 const sizeClass = {

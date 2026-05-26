@@ -44,7 +44,7 @@ export default function Sidebar() {
                     'transition-colors duration-150 truncate',
                     isActive
                       ? 'bg-[#E8F5F1] text-brand-green'
-                      : 'text-text-secondary hover:bg-surface-page hover:text-text-primary',
+                      : 'text-text-primary hover:bg-surface-page hover:text-text-name',
                   ].join(' ')
                 }
               >
@@ -53,7 +53,7 @@ export default function Sidebar() {
                     <Icon
                       size={18}
                       strokeWidth={1.8}
-                      className={`shrink-0 ${isActive ? 'text-brand-green' : 'text-text-secondary'}`}
+                      className={`shrink-0 ${isActive ? 'text-brand-green' : 'text-text-primary'}`}
                     />
                     <span className="truncate">{label}</span>
                   </>

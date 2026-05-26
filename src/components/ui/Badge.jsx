@@ -9,7 +9,7 @@ const variantClass = {
   role:     'bg-badge-role-bg border-badge-role-border text-badge-role-text',
   active:   'bg-badge-active-bg border-badge-active-border text-badge-active-text',
   inactive: 'bg-badge-inactive-bg border-badge-inactive-border text-badge-inactive-text',
-  default:  'bg-transparent border-border-subtle text-text-secondary',
+  default:  'bg-transparent border-border-subtle text-text-body',
 }
 
 export default function Badge({ variant = 'default', children }) {
