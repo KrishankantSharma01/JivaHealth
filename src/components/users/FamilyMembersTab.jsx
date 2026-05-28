@@ -61,12 +61,12 @@ export default function FamilyMembersTab({ user }) {
                     <Badge variant="role">{member.relation}</Badge>
                   </div>
                   
-                  <div className="flex items-center gap-4 mt-1 text-sm font-semibold text-text-secondary">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mt-1 text-sm font-semibold text-text-secondary">
                     <div className="flex items-center gap-1.5">
                       <Phone size={14} className="text-text-muted" />
                       {member.phone}
                     </div>
-                    <div className="flex items-center gap-1.5 border-l border-border-light pl-4">
+                    <div className="flex items-center gap-1.5 sm:border-l sm:border-border-light sm:pl-4">
                       <Calendar size={14} className="text-text-muted" />
                       <span className="text-text-muted">DOB:</span> <span className="text-text-secondary">{member.dob}</span>
                     </div>

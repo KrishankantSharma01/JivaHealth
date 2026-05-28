@@ -6,12 +6,12 @@ import { formatDate, getStatusVariant } from '../../utils/formatters'
 
 export default function UserDetailHeader({ user }) {
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-6 bg-surface-card border border-border-light rounded-xl shadow-sm">
-      <div className="flex items-center gap-4 flex-1 min-w-0">
+    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4 sm:p-6 bg-surface-card border border-border-light rounded-xl shadow-sm">
+      <div className="flex items-start sm:items-center gap-4 flex-1 min-w-0">
         <Avatar initials={user.initials} size="lg" />
         <div className="flex flex-col gap-2 min-w-0">
-          <div className="flex items-center gap-3">
-            <h1 className="text-2xl font-bold font-sans text-text-name truncate">{user.name}</h1>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+            <h1 className="text-xl sm:text-2xl font-bold font-sans text-text-name truncate">{user.name}</h1>
             <div className="flex flex-wrap gap-1.5">
               <Badge variant={getStatusVariant(user.status)}>{user.status}</Badge>
               <Badge variant="role">{user.role}</Badge>
@@ -20,7 +20,7 @@ export default function UserDetailHeader({ user }) {
             </div>
           </div>
           
-          <div className="flex items-center gap-4 text-sm font-medium text-text-body">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm font-medium text-text-body">
             <div className="flex items-center gap-1.5">
               <Calendar size={14} className="text-text-muted" />
               <span>Joined <span className="text-text-heading font-semibold">{formatDate(user.joined)}</span></span>
@@ -33,7 +33,7 @@ export default function UserDetailHeader({ user }) {
         </div>
       </div>
 
-      <div className="flex items-center gap-3 shrink-0">
+      <div className="flex items-center gap-3 shrink-0 self-end lg:self-center">
         {!user.isPrime && (
           <Button variant="cta" size="md" icon={Star} onClick={() => {}}>
             Upgrade to Prime

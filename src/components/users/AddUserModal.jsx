@@ -34,7 +34,7 @@ export default function AddUserModal({ isOpen, onClose }) {
       />
       
       {/* Centered Modal Card with vertical margin and scroll constraints */}
-      <div className="relative bg-white w-full max-w-[560px] max-h-[90vh] rounded-[24px] p-8 shadow-2xl flex flex-col gap-6 animate-in fade-in zoom-in-95 duration-200">
+      <div className="relative bg-white w-full max-w-[560px] max-h-[90vh] rounded-[20px] sm:rounded-[24px] p-5 sm:p-8 shadow-2xl flex flex-col gap-5 sm:gap-6 animate-in fade-in zoom-in-95 duration-200">
         
         {/* Header */}
         <div className="flex items-start justify-between shrink-0">
@@ -58,7 +58,7 @@ export default function AddUserModal({ isOpen, onClose }) {
         <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-6 min-h-0">
           
           {/* Scrollable Fields Grid */}
-          <div className="flex-1 overflow-y-auto pr-1 grid grid-cols-2 gap-x-5 gap-y-4">
+          <div className="flex-1 overflow-y-auto pr-1 grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-4">
             
             {/* Full Name */}
             <div className="flex flex-col gap-1.5">
@@ -163,7 +163,7 @@ export default function AddUserModal({ isOpen, onClose }) {
             </div>
 
             {/* Area Detail */}
-            <div className="col-span-2 flex flex-col gap-1.5">
+            <div className="sm:col-span-2 flex flex-col gap-1.5">
               <label className="text-sm font-semibold text-[#344054] font-sans">
                 Area Detail
               </label>

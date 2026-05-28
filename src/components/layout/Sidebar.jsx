@@ -21,61 +21,81 @@ const navItems = [
   { icon: Settings,        label: 'Setting',           to: '/settings'      },
 ]
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className="fixed left-0 top-0 z-30 flex flex-col sidebar-width h-screen bg-surface-card border-r border-border-light">
+    <>
+      {/* Mobile backdrop overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[1px] lg:hidden transition-opacity"
+          onClick={onClose}
+        />
+      )}
 
-      {/* Logo */}
-      <div className="flex justify-center items-center shrink-0 topbar-height border-b border-border-light px-4 ">
-        <img src={logoUrl} alt="JivaHealth" className="h-14 w-auto object-contain" />
-      </div>
+      <aside
+        className={[
+          'fixed left-0 top-0 z-50 flex flex-col sidebar-width h-screen bg-surface-card border-r border-border-light',
+          'transition-transform duration-300 ease-in-out',
+          // Mobile: slide off-screen by default, slide in when open
+          isOpen ? 'translate-x-0' : '-translate-x-full',
+          // Desktop: always visible
+          'lg:translate-x-0',
+        ].join(' ')}
+      >
 
-      {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto p-4">
-        <ul className="flex flex-col gap-0.5">
-          {navItems.map(({ icon: Icon, label, to }) => (
-            <li key={to}>
-              <NavLink
-                to={to}
-                end={to === '/'}
-                className={({ isActive }) =>
-                  [
-                    'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium font-sans',
-                    'transition-colors duration-150 truncate',
-                    isActive
-                      ? 'bg-[#E8F5F1] text-brand-green'
-                      : 'text-text-primary hover:bg-surface-page hover:text-text-name',
-                  ].join(' ')
-                }
-              >
-                {({ isActive }) => (
-                  <>
-                    <Icon
-                      size={18}
-                      strokeWidth={1.8}
-                      className={`shrink-0 ${isActive ? 'text-brand-green' : 'text-text-primary'}`}
-                    />
-                    <span className="truncate">{label}</span>
-                  </>
-                )}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
+        {/* Logo */}
+        <div className="flex justify-center items-center shrink-0 topbar-height border-b border-border-light px-4 ">
+          <img src={logoUrl} alt="JivaHealth" className="h-14 w-auto object-contain" />
+        </div>
 
-      {/* Profile footer */}
-      <div className="shrink-0 border-t border-border-light p-4">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-green text-white text-xs font-bold shrink-0">
-            AD
-          </div>
-          <div className="flex flex-col min-w-0">
-            <span className="text-sm font-medium font-sans text-text-primary truncate">Admin User</span>
-            <span className="text-xs font-medium font-sans text-text-muted truncate">Admin@healthcare.com</span>
+        {/* Navigation */}
+        <nav className="flex-1 overflow-y-auto p-4">
+          <ul className="flex flex-col gap-0.5">
+            {navItems.map(({ icon: Icon, label, to }) => (
+              <li key={to}>
+                <NavLink
+                  to={to}
+                  end={to === '/'}
+                  onClick={onClose}
+                  className={({ isActive }) =>
+                    [
+                      'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium font-sans',
+                      'transition-colors duration-150 truncate',
+                      isActive
+                        ? 'bg-[#E8F5F1] text-brand-green'
+                        : 'text-text-primary hover:bg-surface-page hover:text-text-name',
+                    ].join(' ')
+                  }
+                >
+                  {({ isActive }) => (
+                    <>
+                      <Icon
+                        size={18}
+                        strokeWidth={1.8}
+                        className={`shrink-0 ${isActive ? 'text-brand-green' : 'text-text-primary'}`}
+                      />
+                      <span className="truncate">{label}</span>
+                    </>
+                  )}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Profile footer */}
+        <div className="shrink-0 border-t border-border-light p-4">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-9 h-9 rounded-full bg-brand-green text-white text-xs font-bold shrink-0">
+              AD
+            </div>
+            <div className="flex flex-col min-w-0">
+              <span className="text-sm font-medium font-sans text-text-primary truncate">Admin User</span>
+              <span className="text-xs font-medium font-sans text-text-muted truncate">Admin@healthcare.com</span>
+            </div>
           </div>
         </div>
-      </div>
-    </aside>
+      </aside>
+    </>
   )
 }

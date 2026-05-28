@@ -72,10 +72,10 @@ export default function PaymentsTab({ user }) {
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 self-end md:self-center">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 self-end md:self-center">
                 <span className="text-lg font-bold text-text-name">{payment.amount}</span>
                 
-                <div className="flex items-center gap-2 border-l border-border-light pl-4">
+                <div className="flex items-center gap-2 sm:border-l sm:border-border-light sm:pl-4">
                   {/* Status select similar to other tabs */}
                   <div className="flex items-center justify-between gap-2 px-4 py-2 text-xs font-semibold text-text-primary bg-[#F0F1F2] hover:bg-[#E5E7EB] rounded-lg cursor-pointer transition-colors min-w-[100px]">
                     <span className="truncate">{payment.status}</span>

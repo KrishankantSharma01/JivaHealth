@@ -1,15 +1,18 @@
-import { Search, Moon, Bell, PanelLeftClose } from 'lucide-react'
+import { Search, Moon, Bell, PanelLeftClose, Menu } from 'lucide-react'
 
-export default function TopBar() {
+export default function TopBar({ onToggleSidebar }) {
   return (
-    <header className="fixed top-0 right-0 z-20 left-sidebar topbar-height flex items-center justify-between bg-surface-card border-b border-border-light px-6">
+    <header className="fixed top-0 right-0 z-20 left-0 lg:left-sidebar topbar-height flex items-center justify-between bg-surface-card border-b border-border-light px-4 sm:px-6 transition-[left] duration-300">
 
-      {/* Left — collapse icon */}
+      {/* Left — hamburger (mobile) / collapse icon (desktop) */}
       <button
-        aria-label="Collapse sidebar"
+        aria-label="Toggle sidebar"
+        onClick={onToggleSidebar}
         className="flex items-center justify-center w-9 h-9 rounded-lg text-text-secondary hover:bg-surface-page transition-colors"
       >
-        <PanelLeftClose size={18} strokeWidth={1.8} />
+        {/* Show hamburger on mobile, collapse icon on desktop */}
+        <Menu size={20} strokeWidth={1.8} className="lg:hidden" />
+        <PanelLeftClose size={18} strokeWidth={1.8} className="hidden lg:block" />
       </button>
 
       {/* Right — action icons */}

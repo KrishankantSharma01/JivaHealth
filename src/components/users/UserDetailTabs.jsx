@@ -1,6 +1,6 @@
 export default function UserDetailTabs({ tabs, activeTab, onTabChange }) {
   return (
-    <div className="flex items-center gap-1 border-b border-border-light overflow-x-auto hide-scrollbar">
+    <div className="flex items-center gap-1 border-b border-border-light overflow-x-auto hide-scrollbar -mx-4 sm:mx-0 px-4 sm:px-0">
       {tabs.map((tab) => {
         const isActive = activeTab === tab.id
         const Icon = tab.icon

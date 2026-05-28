@@ -6,7 +6,7 @@ import StatCard from '../ui/StatCard'
  */
 export default function UserStatsBar({ stats }) {
   return (
-    <div className="flex items-stretch gap-6">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
       <StatCard label="Total User"           value={stats.total}         valueColorClass="text-text-primary"  />
       <StatCard label="Prime User"           value={stats.prime}         valueColorClass="text-brand-active"  />
       <StatCard label="Non-Prime User"       value={stats.nonPrime}      valueColorClass="text-text-primary"  />

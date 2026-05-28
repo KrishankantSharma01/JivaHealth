@@ -87,8 +87,17 @@ body {
 
 .sidebar-width  { width: var(--spacing-sidebar); }
 .topbar-height  { height: var(--spacing-topbar); }
-.ml-sidebar     { margin-left: var(--spacing-sidebar); }
 .mt-topbar      { margin-top: var(--spacing-topbar); }
+
+/* Scrollbar-free containers (e.g. tab bar) */
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Desktop sidebar offsets — only apply on lg+ */
+@media (min-width: 1024px) {
+  .lg\:ml-sidebar  { margin-left: var(--spacing-sidebar); }
+  .lg\:left-sidebar { left: var(--spacing-sidebar); }
+}
 .left-sidebar   { left: var(--spacing-sidebar); }
 
 /* Scrollbar */
